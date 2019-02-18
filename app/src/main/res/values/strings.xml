@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Axxess Challenge</string>
     <string name="title_search">Search</string>
+    <string name="err_empty_comment">Comment is empty!</string>
+    <string name="key_img_link">img_link</string>
+    <string name="key_img_id">img_id</string>
 </resources>

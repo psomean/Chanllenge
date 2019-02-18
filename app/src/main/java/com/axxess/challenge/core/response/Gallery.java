@@ -1,9 +1,21 @@
 package com.axxess.challenge.core.response;
 
+import java.util.Arrays;
+
 public class Gallery {
+    @Override
+    public String toString() {
+        return "Gallery{" +
+                "id='" + id + '\'' +
+                ", datetime=" + datetime +
+                ", images=" + Arrays.toString(images) +
+                '}';
+    }
+
+    private String id;
     private int datetime;
     private ImgurImage[] images;
-    private String id;
+
 
     public int getDatetime() {
         return this.datetime;

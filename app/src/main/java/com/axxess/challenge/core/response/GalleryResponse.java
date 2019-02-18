@@ -1,16 +1,19 @@
 package com.axxess.challenge.core.response;
 
-public class GalleryReponse {
-    private Gallery[] galleries;
+import java.util.Arrays;
+
+public class GalleryResponse {
+    private Gallery[] data;
     private boolean success;
+
     private int status;
 
     public Gallery[] getGalleries() {
-        return this.galleries;
+        return this.data;
     }
 
     public void setData(Gallery[] galleries) {
-        this.galleries = galleries;
+        this.data = galleries;
     }
 
     public boolean getSuccess() {
@@ -27,5 +30,14 @@ public class GalleryReponse {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "GalleryResponse{" +
+                "galleries=" + Arrays.toString(data) +
+                ", success=" + success +
+                ", status=" + status +
+                '}';
     }
 }
