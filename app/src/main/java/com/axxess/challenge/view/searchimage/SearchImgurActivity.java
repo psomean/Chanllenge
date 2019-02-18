@@ -19,6 +19,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -98,11 +99,12 @@ public class SearchImgurActivity extends AppCompatActivity implements SearchImgu
         recyclerView.setAdapter(adapter);
     }
 
+
     @Override
     protected void onDestroy() {
-        super.onDestroy();
-
+        unbinder.unbind();
         mSearchImagePresenter.onDestroy();
+        super.onDestroy();
 
     }
 }

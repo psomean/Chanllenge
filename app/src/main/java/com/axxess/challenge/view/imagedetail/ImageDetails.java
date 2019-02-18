@@ -1,6 +1,7 @@
 package com.axxess.challenge.view.imagedetail;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 public class ImageDetails extends AppCompatActivity implements ImageDetailView{
 
@@ -32,12 +34,13 @@ public class ImageDetails extends AppCompatActivity implements ImageDetailView{
     @Inject ImageDetailPresenter mPresenter;
 
     private ImgurImage mImage;
+    private Unbinder unbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imgur_details);
-        ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -90,7 +93,14 @@ public class ImageDetails extends AppCompatActivity implements ImageDetailView{
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+        unbinder.unbind();
         mPresenter.onViewDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        finish();
+        return super.onOptionsItemSelected(item);
     }
 }
